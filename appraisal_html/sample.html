@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Portal</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 sidebar">
+                <div class="sidebar-header">
+                    <div class="sidebar-logo">Faculty Portal</div>
+                    <button id="hamburger" class="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+                <ul class="sidebar-menu" id="sidebarMenu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Search</a></li>
+                    <li><a href="#">Leaderboard</a></li>
+                    <li><a href="#">Profile</a></li>
+                </ul>
+            </div>
+            <div class="col-md-9 main-content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="profile-header">
+                            <div class="profile-info">
+                                <h1 class="profile-name">Welcome Admin!</h1>
+                            </div>
+                            <div class="profile-actions">
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="userDropdown" data-toggle="dropdown" aria-expanded="false">
+                                        <img src="user.png" alt="User Profile" class="profile-picture">
+                                        Ryan Taylor<br>Administrator
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                                        <a class="dropdown-item" href="#">Home</a>
+                                        <a class="dropdown-item" href="#">Admin</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="#">Logout</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Students</h5>
+                                <h1 class="card-text">50055</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="awards.png" alt="Awards" class="card-img-top">
+                                <h5 class="card-title">Awards</h5>
+                                <h1 class="card-text">50+</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="department.png" alt="Department" class="card-img-top">
+                                <h5 class="card-title">Department</h5>
+                                <h1 class="card-text">30+</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <img src="revenue.png" alt="Revenue" class="card-img-top">
+                                <h5 class="card-title">Revenue</h5>
+                                <h1 class="card-text">$505</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Overview</h5>
+                                <canvas id="overviewChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Number of Students</h5>
+                                <canvas id="studentChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Star Students</h5>
+                                <button class="btn btn-link" type="button"><i class="fas fa-ellipsis-v"></i></button>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">ID</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Marks</th>
+                                            <th scope="col">Percentage</th>
+                                            <th scope="col">Year</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>PRE2209</td>
+                                            <td>John Smith</td>
+                                            <td>1185</td>
+                                            <td>98%</td>
+                                            <td>2019</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PRE1245</td>
+                                            <td>Jolie Hoskins</td>
+                                            <td>1195</td>
+                                            <td>99.5%</td>
+                                            <td>2018</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PRE1625</td>
+                                            <td>Pennington Joy</td>
+                                            <td>1196</td>
+                                            <td>99.6%</td>
+                                            <td>2017</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PRE2516</td>
+                                            <td>Millie Marsden</td>
+                                            <td>1187</td>
+                                            <td>98.2%</td>
+                                            <td>2016</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PRE2209</td>
+                                            <td>John Smith</td>
+                                            <td>1185</td>
+                                            <td>98%</td>
+                                            <td>2015</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Student Activity</h5>
+                                <button class="btn btn-link" type="button"><i class="fas fa-ellipsis-v"></i></button>
+                            </div>
+                            <div class="card-body">
+                                <div class="activity-item">
+                                    <img src="trophy.png" alt="Trophy">
+                                    <div>
+                                        <h6>1st place in "Chess"</h6>
+                                        <p>John Doe won 1st place in "Chess"</p>
+                                    </div>
+                                    <span class="time">1 Day ago</span>
+                                </div>
+                                <div class="activity-item">
+                                    <img src="carrom.png" alt="Carrom">
+                                    <div>
+                                        <h6>Participated in "Carrom"</h6>
+                                        <p>Justin Lee participated in "Carrom"</p>
+                                    </div>
+                                    <span class="time">2 Hours ago</span>
+                                </div>
+                                <div class="activity-item">
+                                    <img src="conference.png" alt="Conference">
+                                    <div>
+                                        <h6>International conference in "St. John School"</h6>
+                                        <p>Justin Lee attended international conference in "St. John School"</p>
+                                    </div>
+                                    <span class="time">2 Week ago</span>
+                                </div>
+                                <div class="activity-item">
+                                    <img src="trophy.png" alt="Trophy">
+                                    <div>
+                                        <h6>Won 1st place in "Chess"</h6>
+                                        <p>John Doe won 1st place in "Chess"</p>
+                                    </div>
+                                    <span class="time">3 Day ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <a href="#" class="social-link">
+                            <img src="facebook.png" alt="Facebook">
+                            <span>50,095</span>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="#" class="social-link">
+                            <img src="twitter.png" alt="Twitter">
+                            <span>48,596</span>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="#" class="social-link">
+                            <img src="instagram.png" alt="Instagram">
+                            <span>52,085</span>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="#" class="social-link">
+                            <img src="linkedin.png" alt="LinkedIn">
+                            <span>69,050</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright text-center">COPYRIGHT © 2022</div>
+    </div>
+
+    <script>
+        // Hamburger menu functionality
+        const hamburger = document.getElementById('hamburger');
+        const sidebarMenu = document.getElementById('sidebarMenu');
+
+        hamburger.addEventListener('click', () => {
+            sidebarMenu.classList.toggle('active');
+        });
+
+        // Sample Chart.js code for the overview chart
+        const ctxOverview = document.getElementById('overviewChart').getContext('2d');
+        const overviewChart = new Chart(ctxOverview, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                datasets: [{
+                    label: 'Teacher',
+                    data: [20, 40, 60, 50, 40, 30, 20],
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 2
+                }, {
+                    label: 'Student',
+                    data: [30, 50, 55, 35, 30, 40, 25],
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Sample Chart.js code for the student chart
+        const ctxStudent = document.getElementById('studentChart').getContext('2d');
+        const studentChart = new Chart(ctxStudent, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                datasets: [{
+                    label: 'Girls',
+                    data: [400, 300, 500, 350, 400, 450, 500],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }, {
+                    label: 'Boys',
+                    data: [350, 250, 450, 300, 350, 400, 450],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

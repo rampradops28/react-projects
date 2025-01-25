@@ -1,0 +1,48 @@
+/* Adjust the main container */
+.boxes {
+    width: 100vw;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* List layout for user cards */
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  /* Styling individual user cards */
+  .user-card {
+    list-style-type: none;
+    width: calc(33.33% - 40px);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 20px;    
+    text-align: center;
+    background-color: white;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Image styling */
+  .avatar {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+  }
+  
+  /* Responsive behavior */
+  @media (max-width: 768px) {
+    .user-card {
+      width: calc(50% - 40px); /* Two items per row on tablets */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .user-card {
+      width: calc(100% - 40px); /* One item per row on smaller screens */
+    }
+  }
+  

@@ -1,0 +1,42 @@
+.container{
+    padding:20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1{
+    padding: 20px;;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    height:250px;
+    width:320px;
+    background-color: rgb(174, 173, 173);
+    border-radius: 20px;
+    padding: 20px;
+}  
+
+.form label{
+    padding: 10px;
+}
+.form input{
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+}
+
+button{
+    width:100px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    height:30px;
+    background-color: green;
+    color: white;
+}
+
+button:hover{
+    background-color: rgb(43, 99, 43);
+}

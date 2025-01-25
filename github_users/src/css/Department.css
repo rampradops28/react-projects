@@ -1,0 +1,25 @@
+ol{
+    list-style-type:  none;
+    display: flex;
+   
+}
+
+li{
+  margin: 10px;
+}
+
+.dept_btn{
+    color:white;
+    background-color: rgb(8, 8, 9);
+    font-size: 10px;
+    height:30px;
+    width:70px;
+    border:none;
+    border-radius: 10px;
+     
+}
+
+.dept_btn:hover{
+    background-color: rgb(128, 25, 109);
+    cursor: pointer;
+}

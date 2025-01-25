@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Faculty Portal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqk1w2xOqGYt3GP2Ww+JBA1vsjZ+0ucrjc6a97cIVwhsvGFPam34tYoFRjl+XC/o400Vi9/g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      width: 100%;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: #fff;
+      padding: 20px;
+    }
+
+    .sidebar h3 {
+      margin-bottom: 20px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar li {
+      margin-bottom: 10px;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 10px;
+      border-radius: 5px;
+      color: #333;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #e9ecef;
+    }
+
+    .main-content {
+      padding: 20px;
+      flex: 1;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .hamburger {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .hamburger i {
+      font-size: 24px;
+    }
+
+    .faculty-details {
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    .faculty-details h2 {
+      margin-bottom: 10px;
+    }
+
+    .faculty-details p {
+      margin-bottom: 5px;
+    }
+
+    .appraisal-details {
+      margin-top: 20px;
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    .appraisal-details h3 {
+      margin-bottom: 10px;
+    }
+
+    .appraisal-details table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .appraisal-details th, .appraisal-details td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    .appraisal-details th {
+      background-color: #f0f0f0;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 20px;
+    }
+
+    .buttons button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    .buttons button.save {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .buttons button.upload {
+      background-color: #2196F3;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <h3>Faculty Appraisal</h3>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="upload.html">Upload</a></li>
+        <li><a href="leaderboard.html">Leaderboard</a></li>
+        <li><a href="profile.html">Profile</a></li>
+      </ul>
+    </div>
+    <div class="main-content">
+      <div class="header">
+        <h1>Faculty Portal</h1>
+      </div>
+      <div class="faculty-details" id="facultyDetails">
+        <h2>Faculty Details</h2>
+        <p><strong>Full Name:</strong> John Doe</p>
+        <p><strong>Unique ID:</strong> 12345</p>
+        <p><strong>Email:</strong> john.doe@example.com</p>
+        <p><strong>Exp Points:</strong> 123</p>
+      </div>
+      <div class="appraisal-details" id="appraisalDetails">
+        <h3>Appraisal Details</h3>
+        <table id="appraisalDetailsTable">
+          <thead>
+            <tr>
+              <th>Criteria</th>
+              <th>Exp Points</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>International Awards</td>
+              <td class="exp-points">100</td>
+            </tr>
+            <tr>
+              <td>National Awards</td>
+              <td class="exp-points">50</td>
+            </tr>
+            <tr>
+              <td>International Conferences</td>
+              <td class="exp-points">75</td>
+            </tr>
+            <tr>
+              <td>National Conferences</td>
+              <td class="exp-points">50</td>
+            </tr>
+            <tr>
+              <td>Seminars Delivered</td>
+              <td class="exp-points">25</td>
+            </tr>
+            <tr>
+              <td>International Journals</td>
+              <td class="exp-points">150</td>
+            </tr>
+            <tr>
+              <td>National Journals</td>
+              <td class="exp-points">100</td>
+            </tr>
+            <tr>
+              <td>Guest Lectures Delivered</td>
+              <td class="exp-points">50</td>
+            </tr>
+            <tr>
+              <td>Online/Offline Courses</td>
+              <td class="exp-points">25</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="buttons">
+        <button class="save">Save</button>
+        <button class="upload" onclick="generatePDF()">Upload</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.6/jspdf.plugin.autotable.min.js"></script>
+
+  <script>
+    function generatePDF() {
+  var doc = new jsPDF();
+
+  // Add title to the PDF
+  doc.setFontSize(18);
+  doc.text("Faculty Appraisal Report", 10, 10);
+
+  // Extract table data
+  let appraisalDetailsTable = document.getElementById('appraisalDetailsTable');
+
+  // Function to extract text content
+  function extractTableText(tableElement) {
+    let rows = tableElement.querySelectorAll('tr');
+    let tableData = [];
+    rows.forEach((row, rowIndex) => {
+      if (rowIndex === 0) return; // Skip header row
+
+      let columns = row.querySelectorAll('td');
+      let rowData = [];
+      columns.forEach(cell => {
+        rowData.push(cell.textContent.trim());
+      });
+      tableData.push(rowData);
+    });
+    return tableData;
+  }
+
+  // Get table data as arrays
+  let appraisalDetails = extractTableText(appraisalDetailsTable);
+
+  // Get headers from table
+  let tableHeaders = Array.from(appraisalDetailsTable.querySelectorAll('th')).map(th => th.textContent.trim());
+
+  // Create table body for PDF
+  let tableBody = [];
+  appraisalDetails.forEach(row => {
+    tableBody.push(row);
+  });
+
+  // Add Appraisal Details to the PDF with styling
+  doc.autoTable({
+    head: [tableHeaders],
+    body: tableBody,
+    startY: 20,
+    theme: 'striped', // Optional: Add striped rows for better readability
+    headStyles: { 
+      fillColor: [0, 120, 215], // Dark blue background for header
+      textColor: [255, 255, 255], // White text color
+      fontStyle: 'bold'
+    },
+    styles: { 
+      cellPadding: 5, 
+      fontSize: 10, 
+      cellWidth: 'auto', 
+      overflow: 'linebreak',
+      lineColor: [0, 0, 0], // Line color for table borders
+      textColor: [0, 0, 0] // Text color
+    },
+    margin: { horizontal: 10 },
+    alternateRowStyles: { fillColor: [240, 240, 240] } // Light gray rows for readability
+  });
+
+  doc.save("faculty_appraisal_report.pdf");
+}
+
+  </script>
+</body>
+</html>
